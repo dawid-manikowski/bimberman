@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-
+signal place_bomb
 const SPEED = 300.0
 
 func _ready():
@@ -22,3 +22,6 @@ func _physics_process(delta):
 		velocity.y += 1 * SPEED
 	$AnimatedSprite2D.play()
 	move_and_collide(velocity*delta)
+	if Input.is_action_just_pressed("place_bomb"):
+		print("Player: Bomb placed!")
+		place_bomb.emit()

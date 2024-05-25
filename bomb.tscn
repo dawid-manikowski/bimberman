@@ -1,14 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://ccj5sev1vt4ut"]
+[gd_scene load_steps=4 format=3 uid="uid://c3brpqpibaf8w"]
 
-[ext_resource type="Texture2D" uid="uid://2ki84n2g0txv" path="res://brickfloor.png" id="1_0aper"]
+[ext_resource type="Texture2D" uid="uid://bkitlom4pebi8" path="res://brickfloor.png" id="1_0aper"]
+[ext_resource type="Script" path="res://bomb.gd" id="1_q31pq"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_usxlb"]
 atlas = ExtResource("1_0aper")
 region = Rect2(144, 0, 48, 48)
 
 [node name="bomb" type="Node2D"]
+script = ExtResource("1_q31pq")
 
 [node name="bomb" type="Sprite2D" parent="."]
-position = Vector2(2.08165e-12, 2.08165e-12)
 texture = SubResource("AtlasTexture_usxlb")
-centered = false
+
+[node name="ticker" type="Timer" parent="."]
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="ticker" to="." method="_on_ticker_timeout"]
