@@ -26,7 +26,6 @@ func _physics_process(delta):
 	var tilemap = get_node("../map/Stones")
 	var collision = move_and_collide(velocity * delta)
 	if collision:
-		print(collision)
 		var cell = tilemap.local_to_map(collision.get_position() - collision.get_normal())
 		tilemap.erase_cell(0, cell)
 	if Input.is_action_just_pressed("place_bomb"):
