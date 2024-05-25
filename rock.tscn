@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://3pf22bahpast"]
+
+[ext_resource type="Texture2D" uid="uid://2ki84n2g0txv" path="res://brickfloor.png" id="1_vqrqd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_si0ns"]
+size = Vector2(48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3ys5w"]
+atlas = ExtResource("1_vqrqd")
+region = Rect2(96, 0, 48, 48)
+
+[node name="rock" type="Node2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(24, 24)
+shape = SubResource("RectangleShape2D_si0ns")
+
+[node name="rock" type="Sprite2D" parent="."]
+position = Vector2(2.08165e-12, 2.08165e-12)
+texture = SubResource("AtlasTexture_3ys5w")
+centered = false
