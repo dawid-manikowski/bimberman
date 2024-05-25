@@ -3,6 +3,7 @@ extends CharacterBody2D
 signal place_bomb
 const SPEED = 150.0
 
+
 func _ready():
 	pass
 
@@ -21,7 +22,13 @@ func _physics_process(delta):
 		$AnimatedSprite2D.animation = "walk_down"
 		velocity.y += 1 * SPEED
 	$AnimatedSprite2D.play()
-	move_and_collide(velocity*delta)
+	#move_and_collide(velocity*delta)
+	var tilemap = get_node("../map/Stones")
+	var collision = move_and_collide(velocity * delta)
+	if collision:
+		print(collision)
+		var cell = tilemap.local_to_map(collision.get_position() - collision.get_normal())
+		tilemap.erase_cell(0, cell)
 	if Input.is_action_just_pressed("place_bomb"):
 		print("Player: Bomb placed!")
 		place_bomb.emit()
