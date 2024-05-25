@@ -22,23 +22,3 @@ func _physics_process(delta):
 		velocity.y += 1 * SPEED
 	$AnimatedSprite2D.play()
 	move_and_collide(velocity*delta)
-	#if velocity.length() > 0:
-		#velocity = velocity.normalized() * SPEED
-		#$AnimatedSprite2D.play()
-	#else:
-		#$AnimatedSprite2D.stop()
-#
-	#if velocity.x != 0:
-		#$AnimatedSprite2D.animation = "walk"
-		#if velocity.y <= 0:
-			#$AnimatedSprite2D.flip_v = false
-		#else:
-			#$AnimatedSprite2D.flip_v = true
-		#$AnimatedSprite2D.flip_h = velocity.x < 0
-	#elif velocity.y != 0:
-		#$AnimatedSprite2D.animation = "up"
-		#$AnimatedSprite2D.flip_v = velocity.y > 0
-
-
-
-
