@@ -7,13 +7,11 @@
 
 [node name="Node" type="Node"]
 script = ExtResource("1_ptoe0")
+bomb = ExtResource("3_tcvs2")
 
 [node name="map" parent="." instance=ExtResource("1_k4bfu")]
 
 [node name="Player" parent="." instance=ExtResource("1_hq825")]
 position = Vector2(121, 403)
-
-[node name="bomb" parent="." instance=ExtResource("3_tcvs2")]
-position = Vector2(166, 406)
 
 [connection signal="place_bomb" from="Player" to="." method="_on_player_place_bomb"]

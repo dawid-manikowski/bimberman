@@ -1,5 +1,6 @@
 extends Node
 
+@export var bomb: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,4 +13,6 @@ func _process(delta):
 
 
 func _on_player_place_bomb():
-	pass
+	var a = bomb.instantiate()
+	a.position = $Player.position
+	add_child(a)
