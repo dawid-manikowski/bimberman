@@ -3,6 +3,7 @@ extends Node2D
 var ticks = 0
 const MAX_TICKS = 6
 var scaled = false
+@export var explosion: PackedScene
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -25,5 +26,8 @@ func _on_ticker_timeout():
 		scale.y = 1
 		scaled = false
 	if ticks >= MAX_TICKS:
-		# TODO: create explosion
+		var a = explosion.instantiate()
+		a.position = position
+		var node = get_node("/root")
+		node.add_child(a)
 		queue_free()
