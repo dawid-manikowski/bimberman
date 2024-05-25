@@ -12,6 +12,14 @@ func _process(delta):
 
 func _on_body_entered(body):
 	print(body)
+	print(owner)
+	print($Root)
+	print(is_inside_tree())
+	print(get_tree_string_pretty())
+	var tilemap = get_node("map/Stones")
+	
+	var cell_coordinates = Vector2i(position)
+	tilemap.erase_cell(0, cell_coordinates)
 
 
 func _on_timer_timeout():
